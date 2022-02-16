@@ -1,0 +1,8 @@
+/******************************************
+*** google font*******************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=Roboto+Mono:ital@1&family=Ubuntu&display=swap');
+
+input {
+    width: 100%;
+    border: none;
+}
