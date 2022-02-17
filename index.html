@@ -16,12 +16,16 @@
         ---custom css link---------------------------->
     <link rel="stylesheet" href="style.css">
 
+    <!-------------------------------------------------------
+        --font awesome cdn link ------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
 </head>
 <body class="bg-light my-5">
-    
 
     <main>
+    <i class="fa-solid fa-circle-dollar"></i>
         <h1 class="text-center bg-info text-light p-3 text-5xl font-semibold">Money Calculation</h1>
         <div class="container">
             <div class="row mt-5 gap-3 gap-md-0 p-3">
@@ -73,7 +77,14 @@
                     </div><!---------------input field end here---
                     -------------------------------------------------------------->
 
-                    <button id="calculate" class="btn btn-light mt-3 text-dark rounded-5">Calculate</button>
+                    <div class="row">
+                        <div class="col-4">
+                            <button id="calculate" class="btn btn-light mt-3 text-dark rounded-5">Calculate</button>
+                        </div>
+                        <div class="col-8">
+                            <p id="error" class="errors">Error: Please input only positive numbers!</p>
+                        </div>
+                    </div>
 
                     <h3 class="text-light mt-3">Total Expenses:<span id="total-expenses"> 0</span></h3>
 

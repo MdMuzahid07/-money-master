@@ -1,12 +1,19 @@
 
 // total expenses and income calculation
 
-function totalExpensesAndIncome(value) {
-  const getInputValue = document.getElementById(value);
-  const inputBoxValue = getInputValue.value;
-  const balanceAndCosts = parseInt(inputBoxValue);
+function totalExpensesAndIncome(values) {
+  const getInputValue = document.getElementById(values);
+  if ((getInputValue.value < 0) || (getInputValue.value.length == '0')) {
+    document.getElementById('error').style.display = 'block';
+    return;
+  } 
+  else {
+    document.getElementById('error').style.display = 'none';
+    const inputBoxValue = getInputValue.value;
+    const balanceAndCosts = parseInt(inputBoxValue);
+    return balanceAndCosts;
+  }
   
-  return balanceAndCosts;
 }
 
 
@@ -35,6 +42,7 @@ document.getElementById('calculate').addEventListener('click', function () {
 
   const displayBalance = document.getElementById('total-balance');
   displayBalance.innerText = remaining;
+  
 
 });
 
@@ -42,8 +50,19 @@ document.getElementById('calculate').addEventListener('click', function () {
 //  saving calculation
 
 document.getElementById('saving-btn').addEventListener('click', function () {
-    // get input value of save input Box
-  
+  // balance after minus cost 
+  const displayBalance = document.getElementById('total-balance');
+  const save = document.getElementById('saving-percentage');
+  const savingValue = save.value;
+  const saving = (displayBalance.innerText / 100) * savingValue;
+
+  const remainingBalance =  displayBalance.innerText - saving;
+
+  // update saving balance and remaining balance
+
+  const savings = document.getElementById('saving-amount').innerText = saving;
+  const remainingAfterAllCost = document.getElementById('remaining-balance').innerText = remainingBalance;
+
 });
 
 
