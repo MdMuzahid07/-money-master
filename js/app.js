@@ -10,14 +10,12 @@ function totalExpensesAndIncome(values) {
     return;
   }
   else if (getInputValue.value.length == '0') {
-    document.getElementById('error').style.display = 'none';
     document.getElementById('error').style.display = 'block';
     totalExpensesAndIncome()
     return;
   }
   else {
     document.getElementById('error').style.display = 'none';
-    document.getElementById('empty-inputs').style.display = 'none';
     const inputBoxValue = getInputValue.value;
     const balanceAndCosts = parseInt(inputBoxValue);
     return balanceAndCosts;
