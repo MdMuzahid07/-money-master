@@ -3,6 +3,7 @@
 
 function totalExpensesAndIncome(values) {
   const getInputValue = document.getElementById(values);
+  // handle errors
   if ((getInputValue.value < 0) || (getInputValue.value.length == '0')) {
     document.getElementById('error').style.display = 'block';
     return;
@@ -53,15 +54,24 @@ document.getElementById('saving-btn').addEventListener('click', function () {
   // balance after minus cost 
   const displayBalance = document.getElementById('total-balance');
   const save = document.getElementById('saving-percentage');
-  const savingValue = save.value;
-  const saving = (displayBalance.innerText / 100) * savingValue;
 
-  const remainingBalance =  displayBalance.innerText - saving;
+  // handle errors
+  if ((save.value > 100) || (displayBalance.innerText.length == 0)) {
+    document.getElementById('error-outOfMoney').style.display = 'block';
+    return;
+  }
+  else {
+    document.getElementById('error-outOfMoney').style.display = 'none';
 
-  // update saving balance and remaining balance
+    const savingValue = save.value;
+    const saving = (displayBalance.innerText / 100) * savingValue;  
+    const remainingBalance =  displayBalance.innerText - saving;
 
-  const savings = document.getElementById('saving-amount').innerText = saving;
-  const remainingAfterAllCost = document.getElementById('remaining-balance').innerText = remainingBalance;
+    // update saving balance and remaining balance
+
+    const savings = document.getElementById('saving-amount').innerText = saving;
+    const remainingAfterAllCost = document.getElementById('remaining-balance').innerText = remainingBalance;
+  }
 
 });
 
