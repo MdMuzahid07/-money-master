@@ -1,43 +1,74 @@
+
+// total expenses and income calculation
+
+function totalExpensesAndIncome(value) {
+  const getInputValue = document.getElementById(value);
+  const inputBoxValue = getInputValue.value;
+  const balanceAndCosts = parseInt(inputBoxValue);
+  
+  return balanceAndCosts;
+}
+
+
 document.getElementById('calculate').addEventListener('click', function () {
-    
-     // main balance of total income
-     const mainBalance = document.getElementById('income-filed');
-    const totalIncome = mainBalance.value;
-    
-    
-     // expenses
-    
-     const foodCost = document.getElementById('food-cost').value;
-     const rentCost = document.getElementById('rent-cost').value;
-    const clothesCost = document.getElementById('clothes-cost').value;
-    
-    const totalCost = parseInt(foodCost) + parseInt(rentCost) + parseInt(clothesCost);
 
-    // minus total const with Income
+  // income
+  const incomeBalance = totalExpensesAndIncome('income-field');
 
-    const balance = totalIncome - totalCost;
+  // all costs
+  const foodCost = totalExpensesAndIncome('food-cost')
+  const rentCost = totalExpensesAndIncome('rent-cost')
+  const clothesCost = totalExpensesAndIncome('clothes-cost')
 
+  const totalCosts = foodCost + rentCost + clothesCost;
 
-    const totalExpenses = document.getElementById('total-expenses');
+  // remaining balance after minus costs
 
-    totalExpenses.innerText = balance;
+  const remaining = incomeBalance - totalCosts;
 
-    
-      // update balance on the Balance display
+  console.log(remaining)
 
-    const remainingBalance = parseInt(totalIncome) - parseInt(balance);
-    
-      const updateBalance = document.getElementById('total-balance');
-      const updateBalanceValue = updateBalance.innerText;
+  // update balance and costs in display
 
-    
-    updateBalance.innerText = remainingBalance;
+  const displayCosts = document.getElementById('total-expenses');
+  displayCosts.innerText = totalCosts;
 
+  const displayBalance = document.getElementById('total-balance');
+  displayBalance.innerText = remaining;
 
 });
 
 
-document.getElementById('saving-btn').add
+//  saving calculation
+
+document.getElementById('saving-btn').addEventListener('click', function () {
+    // get input value of save input Box
+  
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
