@@ -4,10 +4,16 @@
 function totalExpensesAndIncome(values) {
   const getInputValue = document.getElementById(values);
   // handle errors
-  if ((getInputValue.value < 0) || (getInputValue.value.length == '0')) {
+  if (getInputValue.value < '0') {
     document.getElementById('error').style.display = 'block';
+    totalExpensesAndIncome()
     return;
-  } 
+  }
+  else if (getInputValue.value.length == '0') {
+    document.getElementById('error').style.display = 'block';
+    totalExpensesAndIncome()
+    return;
+  }
   else {
     document.getElementById('error').style.display = 'none';
     const inputBoxValue = getInputValue.value;
